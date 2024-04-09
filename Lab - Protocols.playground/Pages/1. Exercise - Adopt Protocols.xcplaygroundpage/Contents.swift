@@ -3,6 +3,34 @@
  
  Create a `Human` class with two properties: `name` of type `String`, and `age` of type `Int`. You'll need to create a memberwise initializer for the class. Initialize two `Human` instances.
  */
+class Human:CustomStringConvertible, Equatable, Comparable{
+    static func < (lhs: Human, rhs: Human) -> Bool {
+        return lhs.age < rhs.age 
+    }
+    
+    static func == (lhs: Human, rhs: Human) -> Bool {
+        return lhs.name == rhs.name && lhs.age == rhs.age
+    }
+    
+    
+    var description: String
+    {
+        return "\(name) is \(age)"
+    }
+    
+    
+    
+    var name: String
+    var age: Int
+    
+    init(name:String, age:Int){
+        self.name = name
+        self.age = age
+    }
+}
+var L = Human(name: "Sarah", age: 45)
+
+print(L)
 
 
 /*:
